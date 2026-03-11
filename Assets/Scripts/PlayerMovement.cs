@@ -20,20 +20,22 @@ public class PlayerMovement : MonoBehaviour
     {
         isGrounded = Physics.Raycast(transform.position, Vector3.down, 1.1f);
         isGrounded2 = Physics.Raycast(transform.position, Vector3.up, 1.1f);
+        float h = Input.GetAxisRaw("Horizontal");
+        float v = Input.GetAxisRaw("Vertical");
+        Vector3 camForward = mainCam.transform.forward;
+        Vector3 camRight = mainCam.transform.right;
+        camForward.y = 0;
+        camRight.y = 0;
+        camForward.Normalize();
+        camRight.Normalize();
+        Vector3 moveDirection = (camForward * v + camRight * h).normalized;
+        Vector3 newVelocity = moveDirection * speed;
         if (isGrounded || isGrounded2)
         {
-            float h = Input.GetAxisRaw("Horizontal");
-            float v = Input.GetAxisRaw("Vertical");
-            Vector3 camForward = mainCam.transform.forward;
-            Vector3 camRight = mainCam.transform.right;
-            camForward.y = 0;
-            camRight.y = 0;
-            camForward.Normalize();
-            camRight.Normalize();
-            Vector3 moveDirection = (camForward * v + camRight * h).normalized;
-            Vector3 newVelocity = moveDirection * speed;
+            
             newVelocity.y = rb.linearVelocity.y;
             rb.linearVelocity = newVelocity;
+        }
 
             if (moveDirection != Vector3.zero)
             {
@@ -42,7 +44,7 @@ public class PlayerMovement : MonoBehaviour
             }
 
 
-        } }
+        }
 
 
         public void Update()
