@@ -50,7 +50,7 @@ public class PlayerMovement : MonoBehaviour
         public void Update()
         {
 
-            if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
+            if (Input.GetKeyDown(KeyCode.Space) && (isGrounded || isGrounded2))
             {
                 rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
                 isGrounded = false;
