@@ -10,7 +10,6 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody rb;
     private Camera mainCam;
     private bool isGrounded;
-    private bool isGrounded2;
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -19,7 +18,6 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
         isGrounded = Physics.Raycast(transform.position, Vector3.down, 1.1f);
-        isGrounded2 = Physics.Raycast(transform.position, Vector3.up, 1.1f);
         float h = Input.GetAxisRaw("Horizontal");
         float v = Input.GetAxisRaw("Vertical");
         Vector3 camForward = mainCam.transform.forward;
@@ -30,7 +28,7 @@ public class PlayerMovement : MonoBehaviour
         camRight.Normalize();
         Vector3 moveDirection = (camForward * v + camRight * h).normalized;
         Vector3 newVelocity = moveDirection * speed;
-        if (isGrounded || isGrounded2)
+        if (isGrounded)
         {
             
             newVelocity.y = rb.linearVelocity.y;
@@ -50,7 +48,7 @@ public class PlayerMovement : MonoBehaviour
         public void Update()
         {
 
-            if (Input.GetKeyDown(KeyCode.Space) && (isGrounded || isGrounded2))
+            if (Input.GetKeyDown(KeyCode.Space) && (isGrounded))
             {
                 rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
                 isGrounded = false;
