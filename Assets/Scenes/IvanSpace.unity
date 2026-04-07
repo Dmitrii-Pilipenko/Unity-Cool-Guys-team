@@ -934,7 +934,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcb2733ab6ec74065b4c20d60b2b4b60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GravityManager
-  wrap: {fileID: 0}
+  wrap: {fileID: 1617257071}
   playerTransform: {fileID: 138779971}
   speed: 7
 --- !u!4 &1617257071
