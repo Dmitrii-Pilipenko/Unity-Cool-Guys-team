@@ -1,26 +1,38 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MenuController : MonoBehaviour
 {
-    public GameObject mainMenuPanel;
-    public GameObject settingsPanel;
+    [SerializeField] private GameObject mainMenuPanel;
+    [SerializeField] private GameObject settingsPanel;
+
+    private void Awake()
+    {
+        if (mainMenuPanel == null || settingsPanel == null)
+        {
+            Debug.LogError("Menu panels not assigned!");
+        }
+    }
 
     public void Play()
     {
-        Debug.Log("Start Game");
-        // SceneManager.LoadScene("—цена с игрой");
+        SceneManager.LoadScene("IvanSpace");
     }
 
     public void OpenSettings()
     {
-        mainMenuPanel.SetActive(false);
-        settingsPanel.SetActive(true);
+        SetPanels(false, true);
     }
 
     public void CloseSettings()
     {
-        settingsPanel.SetActive(false);
-        mainMenuPanel.SetActive(true);
+        SetPanels(true, false);
+    }
+
+    private void SetPanels(bool main, bool settings)
+    {
+        mainMenuPanel.SetActive(main);
+        settingsPanel.SetActive(settings);
     }
 
     public void ExitGame()
