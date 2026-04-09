@@ -5,6 +5,7 @@ public class SpawnManager : MonoBehaviour
 {
     public GameObject player;
     public Transform spawnPoint;
+    public static SpawnManager Instance;
 
     void Start()
     {
@@ -22,5 +23,9 @@ public class SpawnManager : MonoBehaviour
                 vcam.LookAt = newPlayer.transform;
             }
         }
+    }
+    void Awake()
+    {
+        Instance = this;
     }
 }
