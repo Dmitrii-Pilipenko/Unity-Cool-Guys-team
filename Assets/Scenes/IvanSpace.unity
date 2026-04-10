@@ -132,7 +132,7 @@ GameObject:
   - component: {fileID: 179378320}
   - component: {fileID: 179378319}
   m_Layer: 0
-  m_Name: Spawn
+  m_Name: SpawnPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -381,6 +381,7 @@ GameObject:
   m_Component:
   - component: {fileID: 446469158}
   - component: {fileID: 446469157}
+  - component: {fileID: 446469159}
   m_Layer: 0
   m_Name: CM vcam1
   m_TagString: Untagged
@@ -443,6 +444,20 @@ Transform:
   - {fileID: 1138823617}
   m_Father: {fileID: 1617257071}
   m_LocalEulerAnglesHint: {x: 30, y: 0, z: 0}
+--- !u!114 &446469159
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 446469156}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8fcd4c65a6af48acb8dfd3c5b71998c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CameraRotation
+  vcam: {fileID: 446469157}
+  flipDuration: 0.5
 --- !u!1 &811131859
 GameObject:
   m_ObjectHideFlags: 0
@@ -1009,9 +1024,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcb2733ab6ec74065b4c20d60b2b4b60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GravityManager
-  wrap: {fileID: 1617257071}
-  playerTransform: {fileID: 0}
-  speed: 7
 --- !u!4 &1617257071
 Transform:
   m_ObjectHideFlags: 0
