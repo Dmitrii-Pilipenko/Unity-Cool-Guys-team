@@ -4,7 +4,6 @@ public class PolarityManager : MonoBehaviour
 {
     public bool isRed = true;
     private Renderer rend;
-    public CameraRotation camrotate;
     void Start()
     {
         rend = GetComponent<Renderer>();
@@ -17,7 +16,6 @@ public class PolarityManager : MonoBehaviour
         {
             isRed = !isRed;
             UpdateColor();
-            camrotate.FlipCamera();
         }
     }
     private void UpdateColor()
