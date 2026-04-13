@@ -13,6 +13,9 @@ public class SpawnManager : MonoBehaviour
     }
     public void SpawnCube()
     {
+        Debug.Log("Spawning player...");
+        if (player == null) Debug.LogError("Player prefab is NULL!");
+        if (spawnPoint == null) Debug.LogError("SpawnPoint is NULL!");
         if (player != null && spawnPoint != null)
         {
             GameObject newPlayer = Instantiate(player, spawnPoint.position, spawnPoint.rotation);
