@@ -14,6 +14,7 @@ public class PlayerMovement : MonoBehaviour, IControllable
     private float inputV;
     private bool isNormalGravityPlayer = true;
     private Vector3 personalGravity = new Vector3(0, -9.81f, 0);
+    private Animator animator;
 
     void Start()
     {
@@ -25,6 +26,7 @@ public class PlayerMovement : MonoBehaviour, IControllable
         {
             manager.RegisterObject(this);
         }
+        animator = GetComponent<Animator>();
     }
     public void Move(float horizontal, float vertical)
     {
@@ -76,6 +78,20 @@ public class PlayerMovement : MonoBehaviour, IControllable
         {
             Quaternion targetRotation = Quaternion.LookRotation(moveDirection);
             rb.rotation = Quaternion.Slerp(rb.rotation, targetRotation, turnSpeed * Time.fixedDeltaTime);
+        }
+        float currentSpeed = new Vector3(rb.linearVelocity.x, 0, rb.linearVelocity.z).magnitude;
+
+        if (animator != null)
+        {
+            animator.SetFloat("Speed", currentSpeed);
+        }
+    }
+    void OnDestroy()
+    {
+        InputManager manager = FindFirstObjectByType<InputManager>();
+        if (manager != null)
+        {
+            manager.UnregisterObject(this);
         }
     }
 }

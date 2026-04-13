@@ -11,12 +11,17 @@ public class InputManager : MonoBehaviour
             registry.Add(obj);
         }
     }
+    //public void UnregisterObject(IControllable obj)
+    //{
+    //    if (registry.Contains(obj))
+    //    {
+    //        registry.Remove(obj);
+    //    }
+    //}
+
     public void UnregisterObject(IControllable obj)
     {
-        if (registry.Contains(obj))
-        {
-            registry.Remove(obj);
-        }
+        registry.Remove(obj);
     }
     void Update()
     {
