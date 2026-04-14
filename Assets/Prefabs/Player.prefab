@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 6211214064821842552}
   - component: {fileID: 1027232423423465594}
   - component: {fileID: 1209454704887506614}
+  - component: {fileID: -2677634810785202393}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -170,3 +171,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PolarityManager
   isRed: 1
+--- !u!114 &-2677634810785202393
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4859348231199451461}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 390600f5f73d44730a87946119cb1e8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RobotHealth
+  anim: {fileID: 0}
+  movementScript: {fileID: 0}

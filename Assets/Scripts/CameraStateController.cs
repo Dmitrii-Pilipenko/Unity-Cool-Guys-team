@@ -8,6 +8,7 @@ public class CameraStateController : MonoBehaviour
     public CinemachineVirtualCamera vcamNormal;
     public CinemachineVirtualCamera vcamInverted;
     private bool playerFound = false;
+    private Transform playerTransform;
 
     void Start()
     {
@@ -23,28 +24,30 @@ public class CameraStateController : MonoBehaviour
         {
             animator = GetComponent<Animator>();
         }
+        if (playerTransform == null)
+        {
+            playerTransform = playerPolarity.transform;
+        }
+    }
+
+    public void SetCameraTarget(GameObject player)
+    {
+        playerTransform = player.transform;
+        
+        vcamNormal.Follow = playerTransform;
+        vcamNormal.LookAt = playerTransform;
+        vcamInverted.Follow = playerTransform;
+        vcamInverted.LookAt = playerTransform;
+
+        Debug.Log("Камера получила цель от Спавнера!");
     }
 
     void Update()
     {
-        if (playerPolarity == null)
-        {
-            playerPolarity = Object.FindAnyObjectByType<PolarityManager>();
-            if (playerPolarity != null)
-            {
-                Transform target = playerPolarity.transform;
-                vcamNormal.Follow = target;
-                vcamNormal.LookAt = target;
-                vcamInverted.Follow = target;
-                vcamInverted.LookAt = target;
-                //Debug.Log("Камера наконец то нашлась ЮХУ");
-            }
-        }
-        else
-        {
-            animator.SetBool("isInverted", !playerPolarity.isRed);
-        }
+        if (playerTransform == null) return;
 
+        bool overThreshold = playerTransform.position.y > 5;
+        animator.SetBool("isInverted", overThreshold);
     }
 }
    
