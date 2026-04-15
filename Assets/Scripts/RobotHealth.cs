@@ -14,7 +14,8 @@ public class RobotHealth : MonoBehaviour
     }
     public void TakeDamage(ElementType type)
     {
-        movementScript.enabled = false;
+        Debug.Log("Наступил в парашу - ты умер");
+        //movementScript.enabled = false;
         // if (type.isShock)
         // {
         //     Debug.Log("Накуканило током");
