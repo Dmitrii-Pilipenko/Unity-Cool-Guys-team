@@ -1,3 +1,4 @@
+using System.Collections;
 using Cinemachine;
 using UnityEngine;
 
@@ -5,7 +6,19 @@ public class SpawnManager : MonoBehaviour
 {
     public GameObject player;
     public Transform spawnPoint;
+    public static SpawnManager Instance { get; private set; }
 
+    void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
     void Start()
     {
         SpawnCube();
@@ -20,6 +33,22 @@ public class SpawnManager : MonoBehaviour
             {
                 camController.SetCameraTarget(newPlayer);
             }
+        }
+    }
+    public void Relocate(GameObject playerObj)
+    {
+        StartCoroutine(Respawn(playerObj));
+
+    }
+    private IEnumerator Respawn(GameObject playerObj)
+    {
+        yield return new WaitForSeconds(1.0f);
+        if (spawnPoint == null) yield break;
+        playerObj.transform.position = spawnPoint.position;
+        if (playerObj.TryGetComponent(out Rigidbody rb))
+        {
+            rb.linearVelocity = Vector3.zero;
+            rb.angularVelocity = Vector3.zero;
         }
     }
 }
