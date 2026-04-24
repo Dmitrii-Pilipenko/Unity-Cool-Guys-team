@@ -50,5 +50,9 @@ public class SpawnManager : MonoBehaviour
             rb.linearVelocity = Vector3.zero;
             rb.angularVelocity = Vector3.zero;
         }
+        if (playerObj.TryGetComponent(out RobotHealth health))
+        {
+            health.Revive();
+        }
     }
 }

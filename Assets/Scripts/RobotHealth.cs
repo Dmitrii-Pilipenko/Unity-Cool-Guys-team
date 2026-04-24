@@ -3,10 +3,13 @@ using UnityEngine;
 
 public class RobotHealth : MonoBehaviour
 {
-    public Animator anim;
     public PlayerMovement movementScript;
+    [SerializeField] private GameObject explosionPrefab;
+    [SerializeField] private GameObject robotMesh;
+    private Rigidbody rb;
     void Start()
     {
+        rb = GetComponent<Rigidbody>();
         if (movementScript == null)
         {
             movementScript = GetComponent<PlayerMovement>();
@@ -14,18 +17,47 @@ public class RobotHealth : MonoBehaviour
     }
     public void TakeDamage(ElementType type)
     {
-        Debug.Log("Наступил в парашу - ты умер");
-        // movementScript.enabled = false;
-        // if (type.isShock)
-        // {
-        //     Debug.Log("Накуканило током");
-        //     anim.SetTrigger("Shocked");
-        // }
-        // else if (type.isInstatntDeath)
-        // {
-        //     Debug.Log("Сгорел в лаве");
-        //     anim.SetTrigger("Melt");
-        // }
-        // Invoke("RestartLevel", 2f);
+
+        Die();
+    }
+    private void Die()
+    {
+        if (rb != null)
+        {
+            rb.linearVelocity = Vector3.zero;
+            rb.angularVelocity = Vector3.zero;
+            rb.isKinematic = false;
+
+        }
+        if (movementScript != null)
+        {
+            movementScript.enabled = false;
+        }
+        if (explosionPrefab != null)
+        {
+            Instantiate(explosionPrefab, transform.position, Quaternion.identity);
+        }
+        if (robotMesh != null)
+        {
+            robotMesh.SetActive(false);
+        }
+        Debug.Log("Суши весла - ты приплыл");
+
+    }
+    public void Revive()
+    {
+        if (rb != null)
+        {
+            rb.isKinematic = false;
+        }
+        if (movementScript != null)
+        {
+            movementScript.enabled = true;
+        }
+        if (robotMesh != null)
+        {
+            robotMesh.SetActive(true);
+        }
+
     }
 }
