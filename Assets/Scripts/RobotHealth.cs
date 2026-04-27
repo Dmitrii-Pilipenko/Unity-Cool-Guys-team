@@ -26,7 +26,7 @@ public class RobotHealth : MonoBehaviour
         {
             rb.linearVelocity = Vector3.zero;
             rb.angularVelocity = Vector3.zero;
-            rb.isKinematic = false;
+            rb.isKinematic = true;
 
         }
         if (movementScript != null)
