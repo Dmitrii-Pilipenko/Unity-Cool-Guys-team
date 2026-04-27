@@ -15,11 +15,10 @@ public class SpawnManager : MonoBehaviour
         if (player != null && spawnPoint != null)
         {
             GameObject newPlayer = Instantiate(player, spawnPoint.position, spawnPoint.rotation);
-            CinemachineVirtualCamera vcam = FindFirstObjectByType<CinemachineVirtualCamera>();
-            if (vcam != null)
+            CameraStateController camController = FindAnyObjectByType<CameraStateController>();
+            if (camController != null)
             {
-                vcam.Follow = newPlayer.transform;
-                vcam.LookAt = newPlayer.transform;
+                camController.SetCameraTarget(newPlayer);
             }
         }
     }
