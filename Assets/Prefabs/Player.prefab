@@ -15,7 +15,11 @@ GameObject:
   - component: {fileID: 6211214064821842552}
   - component: {fileID: 1027232423423465594}
   - component: {fileID: 1209454704887506614}
+<<<<<<< HEAD
   - component: {fileID: -2053865575174874773}
+=======
+  - component: {fileID: -2677634810785202393}
+>>>>>>> origin
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -171,7 +175,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PolarityManager
   isRed: 1
+<<<<<<< HEAD
 --- !u!114 &-2053865575174874773
+=======
+--- !u!114 &-2677634810785202393
+>>>>>>> origin
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -180,7 +188,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 4859348231199451461}
   m_Enabled: 1
   m_EditorHideFlags: 0
+<<<<<<< HEAD
   m_Script: {fileID: 11500000, guid: 5a24ac443b188fb4887a4b75e0599e26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerRespawn
   spawnPoint: {fileID: 0}
+=======
+  m_Script: {fileID: 11500000, guid: 390600f5f73d44730a87946119cb1e8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RobotHealth
+  anim: {fileID: 0}
+  movementScript: {fileID: 0}
+>>>>>>> origin

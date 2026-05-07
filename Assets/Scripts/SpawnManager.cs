@@ -1,3 +1,4 @@
+using System.Collections;
 using Cinemachine;
 using UnityEngine;
 
@@ -5,30 +6,53 @@ public class SpawnManager : MonoBehaviour
 {
     public GameObject player;
     public Transform spawnPoint;
-    public static SpawnManager Instance;
+    public static SpawnManager Instance { get; private set; }
 
+    void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
     void Start()
     {
         SpawnCube();
     }
     public void SpawnCube()
     {
-        Debug.Log("Spawning player...");
-        if (player == null) Debug.LogError("Player prefab is NULL!");
-        if (spawnPoint == null) Debug.LogError("SpawnPoint is NULL!");
         if (player != null && spawnPoint != null)
         {
             GameObject newPlayer = Instantiate(player, spawnPoint.position, spawnPoint.rotation);
-            CinemachineVirtualCamera vcam = FindFirstObjectByType<CinemachineVirtualCamera>();
-            if (vcam != null)
+            CameraStateController camController = FindAnyObjectByType<CameraStateController>();
+            if (camController != null)
             {
-                vcam.Follow = newPlayer.transform;
-                vcam.LookAt = newPlayer.transform;
+                camController.SetCameraTarget(newPlayer);
             }
         }
     }
-    void Awake()
+    public void Relocate(GameObject playerObj)
     {
-        Instance = this;
+        StartCoroutine(Respawn(playerObj));
+
+    }
+    private IEnumerator Respawn(GameObject playerObj)
+    {
+        yield return new WaitForSeconds(1.0f);
+        if (spawnPoint == null) yield break;
+        playerObj.transform.position = spawnPoint.position;
+        if (playerObj.TryGetComponent(out Rigidbody rb))
+        {
+            rb.linearVelocity = Vector3.zero;
+            rb.angularVelocity = Vector3.zero;
+        }
+        if (playerObj.TryGetComponent(out RobotHealth health))
+        {
+            health.Revive();
+        }
     }
 }

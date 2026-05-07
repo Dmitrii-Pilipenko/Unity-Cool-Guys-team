@@ -4,7 +4,6 @@ public class PolarityManager : MonoBehaviour
 {
     public bool isRed = true;
     private Renderer rend;
-    
     void Start()
     {
         rend = GetComponent<Renderer>();
