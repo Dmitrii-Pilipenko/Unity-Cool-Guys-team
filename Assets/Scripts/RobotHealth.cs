@@ -36,6 +36,7 @@ public class RobotHealth : MonoBehaviour
         if (explosionPrefab != null)
         {
             Instantiate(explosionPrefab, transform.position, Quaternion.identity);
+            Destroy(explosionPrefab, 2f);
         }
         if (robotMesh != null)
         {

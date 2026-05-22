@@ -11,8 +11,10 @@ public class HazardArea : MonoBehaviour
             if (zap != null)
             {
                 Vector3 spawnPos = other.transform.position;
-                Instantiate(zap, spawnPos, Quaternion.identity);
+                GameObject spawnedZap = Instantiate(zap, spawnPos, Quaternion.identity);
+                Destroy(spawnedZap, 2f);
                 Debug.Log("Тебя пожарили как шкурку");
+
 
             }
             other.GetComponent<RobotHealth>().TakeDamage(hazardType);
