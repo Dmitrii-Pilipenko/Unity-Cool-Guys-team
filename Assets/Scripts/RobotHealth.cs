@@ -1,3 +1,4 @@
+using Unity.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -22,31 +23,37 @@ public class RobotHealth : MonoBehaviour
     }
     private void Die()
     {
-        if (rb != null)
-        {
-            rb.linearVelocity = Vector3.zero;
-            rb.angularVelocity = Vector3.zero;
-            rb.isKinematic = true;
-
-        }
         if (movementScript != null)
         {
             movementScript.enabled = false;
         }
+        if (rb != null)
+        {
+            rb.linearVelocity = Vector3.zero;
+            rb.angularVelocity = Vector3.zero;
+            rb.Sleep();
+            rb.isKinematic = true;
+
+        }
         if (explosionPrefab != null)
         {
-            Instantiate(explosionPrefab, transform.position, Quaternion.identity);
-            Destroy(explosionPrefab, 2f);
+            GameObject exlposion = Instantiate(explosionPrefab, transform.position, Quaternion.identity);
+            Destroy(exlposion, 2f);
         }
         if (robotMesh != null)
         {
             robotMesh.SetActive(false);
         }
         Debug.Log("Суши весла - ты приплыл");
+        // Destroy(rb);
 
     }
     public void Revive()
     {
+        if (robotMesh != null)
+        {
+            robotMesh.SetActive(true);
+        }
         if (rb != null)
         {
             rb.isKinematic = false;
@@ -55,10 +62,7 @@ public class RobotHealth : MonoBehaviour
         {
             movementScript.enabled = true;
         }
-        if (robotMesh != null)
-        {
-            robotMesh.SetActive(true);
-        }
+        
 
     }
 }

@@ -17,7 +17,11 @@ public class HazardArea : MonoBehaviour
 
 
             }
-            other.GetComponent<RobotHealth>().TakeDamage(hazardType);
+            RobotHealth health = other.GetComponent<RobotHealth>();
+            if (health != null)
+            {
+                health.TakeDamage(hazardType);
+            }
             if (SpawnManager.Instance != null)
             {
                 SpawnManager.Instance.Relocate(other.gameObject);
