@@ -183,5 +183,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 390600f5f73d44730a87946119cb1e8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RobotHealth
-  anim: {fileID: 0}
-  movementScript: {fileID: 0}
+  movementScript: {fileID: 1027232423423465594}
+  explosionPrefab: {fileID: 0}
+  robotMesh: {fileID: 0}
