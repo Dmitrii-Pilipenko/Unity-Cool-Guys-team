@@ -3,10 +3,13 @@ using UnityEngine;
 public class PolarityManager : MonoBehaviour
 {
     public bool isRed = true;
-    private Renderer rend;
+    [SerializeField] private Renderer rend;
     void Start()
     {
-        rend = GetComponent<Renderer>();
+        if (rend == null) {
+            rend = GetComponent<Renderer>();
+            
+        }
         UpdateColor();
     }
 

@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
@@ -5,7 +6,8 @@ public class PlayerMovement : MonoBehaviour, IControllable
 {
     [SerializeField] public float speed = 7f;
     [SerializeField] public float turnSpeed = 10f;
-    [SerializeField] public float jumpForce = 6f;  
+    [SerializeField] public float jumpForce = 6f;
+    [SerializeField] Animator animator;
     private Rigidbody rb;
     private Camera mainCam;
     private bool isGrounded;
@@ -14,6 +16,7 @@ public class PlayerMovement : MonoBehaviour, IControllable
     private float inputV;
     private bool isNormalGravityPlayer = true;
     private Vector3 personalGravity = new Vector3(0, -9.81f, 0);
+    bool isRunning = false;
 
     void Start()
     {
@@ -30,6 +33,7 @@ public class PlayerMovement : MonoBehaviour, IControllable
     {
         inputH = horizontal;
         inputV = vertical;
+        isRunning = true;
     }
 
     public void Jump()
@@ -59,6 +63,23 @@ public class PlayerMovement : MonoBehaviour, IControllable
             transform.localScale = new Vector3(1, -1, 1);
         }
     }
+    public void Update()
+    {
+        if (isRunning)
+        {
+            animator.SetBool("isRunning", true);
+        }
+        else
+        {
+            animator.SetBool("isRunning", false);
+        }
+        if (Input.GetMouseButtonDown(0))
+        {
+            animator.SetTrigger("attack");
+        }
+    }
+
+
     private void FixedUpdate()
     {
         rb.AddForce(personalGravity, ForceMode.Acceleration);
@@ -77,5 +98,6 @@ public class PlayerMovement : MonoBehaviour, IControllable
             Quaternion targetRotation = Quaternion.LookRotation(moveDirection);
             rb.rotation = Quaternion.Slerp(rb.rotation, targetRotation, turnSpeed * Time.fixedDeltaTime);
         }
+
     }
 }
