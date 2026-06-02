@@ -16,7 +16,6 @@ public class PlayerMovement : MonoBehaviour, IControllable
     private float inputV;
     private bool isNormalGravityPlayer = true;
     private Vector3 personalGravity = new Vector3(0, -9.81f, 0);
-    bool isRunning = false;
 
     void Start()
     {
@@ -33,7 +32,6 @@ public class PlayerMovement : MonoBehaviour, IControllable
     {
         inputH = horizontal;
         inputV = vertical;
-        isRunning = true;
     }
 
     public void Jump()
@@ -65,18 +63,15 @@ public class PlayerMovement : MonoBehaviour, IControllable
     }
     public void Update()
     {
-        if (isRunning)
-        {
-            animator.SetBool("isRunning", true);
-        }
-        else
-        {
-            animator.SetBool("isRunning", false);
-        }
-        if (Input.GetMouseButtonDown(0))
-        {
-            animator.SetTrigger("attack");
-        }
+        float moveAmount = new Vector2(inputH, inputV).magnitude;
+
+
+        animator.SetFloat("Blend", moveAmount);
+
+        //if (Input.GetMouseButtonDown(0))
+        //{
+        //    animator.SetTrigger("attack");
+        //}
     }
 
 
