@@ -1,3 +1,4 @@
+using System.Collections;
 using Unity.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -7,6 +8,7 @@ public class RobotHealth : MonoBehaviour
     public PlayerMovement movementScript;
     [SerializeField] private GameObject explosionPrefab;
     [SerializeField] private GameObject robotMesh;
+    [SerializeField] private Animator animator;
     private Rigidbody rb;
     void Start()
     {
@@ -18,11 +20,14 @@ public class RobotHealth : MonoBehaviour
     }
     public void TakeDamage(ElementType type)
     {
-
         Die();
     }
     private void Die()
     {
+        if (animator != null)
+        {
+            animator.SetBool("isDie", true);
+        }
         if (movementScript != null)
         {
             movementScript.enabled = false;
@@ -35,21 +40,46 @@ public class RobotHealth : MonoBehaviour
             rb.isKinematic = true;
 
         }
+        //if (explosionPrefab != null)
+        //{
+        //    GameObject exlposion = Instantiate(explosionPrefab, transform.position, Quaternion.identity);
+        //    Destroy(exlposion, 2f);
+        //}
+        //if (robotMesh != null)
+        //{
+        //    robotMesh.SetActive(false);
+        //}
+        //Debug.Log("Суши весла - ты приплыл");
+        //// Destroy(rb);
+        ///
+        StartCoroutine(DieCoroutine());
+
+    }
+
+    private IEnumerator DieCoroutine()
+    {
+        yield return null;
+        float animLength = animator.GetCurrentAnimatorStateInfo(0).length;
+        yield return new WaitForSeconds(animLength);
+
         if (explosionPrefab != null)
         {
-            GameObject exlposion = Instantiate(explosionPrefab, transform.position, Quaternion.identity);
-            Destroy(exlposion, 2f);
+            GameObject explosion = Instantiate(explosionPrefab, transform.position, Quaternion.identity);
+            Destroy(explosion, 2f);
         }
+
         if (robotMesh != null)
         {
             robotMesh.SetActive(false);
         }
-        Debug.Log("Суши весла - ты приплыл");
-        // Destroy(rb);
-
     }
     public void Revive()
     {
+        if (animator != null)
+        {
+            animator.SetBool("isDie", false);
+        }
+
         if (robotMesh != null)
         {
             robotMesh.SetActive(true);
