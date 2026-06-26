@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &4859348231199451461
+--- !u!1 &7041870713649805675
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,51 +8,48 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 8079703980101391098}
-  - component: {fileID: 425975637746664876}
-  - component: {fileID: 2050800767209319960}
-  - component: {fileID: 7912491568911030296}
-  - component: {fileID: 6211214064821842552}
-  - component: {fileID: 1027232423423465594}
-  - component: {fileID: 1209454704887506614}
-  - component: {fileID: -2677634810785202393}
+  - component: {fileID: 1690273446915096751}
+  - component: {fileID: 4012982907906131149}
+  - component: {fileID: 6109827663449552621}
+  - component: {fileID: 5626947524934912021}
+  - component: {fileID: 1040423503253579796}
   m_Layer: 0
-  m_Name: Player
-  m_TagString: Player
+  m_Name: Book
+  m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &8079703980101391098
+--- !u!4 &1690273446915096751
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4859348231199451461}
+  m_GameObject: {fileID: 7041870713649805675}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.89142, y: 1.2149999, z: 4.2078}
+  m_LocalPosition: {x: 0.92894983, y: 1.9560599, z: 3.17763}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &425975637746664876
+--- !u!33 &4012982907906131149
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4859348231199451461}
+  m_GameObject: {fileID: 7041870713649805675}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &2050800767209319960
+--- !u!23 &6109827663449552621
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4859348231199451461}
+  m_GameObject: {fileID: 7041870713649805675}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -95,13 +92,13 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &7912491568911030296
+--- !u!65 &5626947524934912021
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4859348231199451461}
+  m_GameObject: {fileID: 7041870713649805675}
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -111,18 +108,18 @@ BoxCollider:
     m_Bits: 0
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
-  m_ProvidesContacts: 0
+  m_ProvidesContacts: 1
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!54 &6211214064821842552
+--- !u!54 &1040423503253579796
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4859348231199451461}
+  m_GameObject: {fileID: 7041870713649805675}
   serializedVersion: 5
   m_Mass: 1
   m_LinearDamping: 0
@@ -140,49 +137,6 @@ Rigidbody:
   m_ImplicitTensor: 1
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 1
-  m_Constraints: 112
+  m_Interpolate: 0
+  m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &1027232423423465594
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4859348231199451461}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: af28d94df06b96e4c91c8dda1c7e9040, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
-  speed: 7
-  turnSpeed: 10
-  jumpForce: 6
---- !u!114 &1209454704887506614
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4859348231199451461}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e6c79c998fac491e8f4802b43ae6b4e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PolarityManager
-  isRed: 1
---- !u!114 &-2677634810785202393
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4859348231199451461}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 390600f5f73d44730a87946119cb1e8d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::RobotHealth
-  movementScript: {fileID: 1027232423423465594}
-  explosionPrefab: {fileID: 0}
-  robotMesh: {fileID: 0}
