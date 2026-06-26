@@ -17,6 +17,7 @@ public class PlayerMovement : MonoBehaviour, IControllable
     private bool isNormalGravityPlayer = true;
     private Vector3 personalGravity = new Vector3(0, -9.81f, 0);
 
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -41,10 +42,12 @@ public class PlayerMovement : MonoBehaviour, IControllable
         if (isGrounded)
         {
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+            animator.SetBool("isGround", false);
         }
         else if (isOnFloor)
         {
             rb.AddForce(Vector3.down * jumpForce, ForceMode.Impulse);
+            animator.SetBool("isGround", false);
         }
     }
     public void ToggleGravity()
@@ -64,8 +67,8 @@ public class PlayerMovement : MonoBehaviour, IControllable
     public void Update()
     {
         float moveAmount = new Vector2(inputH, inputV).magnitude;
-
-
+        isGrounded = Physics.Raycast(transform.position, Vector3.down, 1.1f);
+        animator.SetBool("isGround", isGrounded);
         animator.SetFloat("Blend", moveAmount);
 
         //if (Input.GetMouseButtonDown(0))
