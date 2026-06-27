@@ -1,12 +1,18 @@
+using System.Collections;
+using Unity.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
 
 public class RobotHealth : MonoBehaviour
 {
-    public Animator anim;
     public PlayerMovement movementScript;
+    [SerializeField] private GameObject explosionPrefab;
+    [SerializeField] private GameObject robotMesh;
+    [SerializeField] private Animator animator;
+    private Rigidbody rb;
     void Start()
     {
+        rb = GetComponent<Rigidbody>();
         if (movementScript == null)
         {
             movementScript = GetComponent<PlayerMovement>();
@@ -14,18 +20,79 @@ public class RobotHealth : MonoBehaviour
     }
     public void TakeDamage(ElementType type)
     {
-        Debug.Log("Наступил в парашу - ты умер");
-        //movementScript.enabled = false;
-        // if (type.isShock)
-        // {
-        //     Debug.Log("Накуканило током");
-        //     anim.SetTrigger("Shocked");
-        // }
-        // else if (type.isInstatntDeath)
-        // {
-        //     Debug.Log("Сгорел в лаве");
-        //     anim.SetTrigger("Melt");
-        // }
-        // Invoke("RestartLevel", 2f);
+        Die();
+    }
+    private void Die()
+    {
+        if (animator != null)
+        {
+            animator.SetBool("isDie", true);
+        }
+        if (movementScript != null)
+        {
+            movementScript.enabled = false;
+        }
+        if (rb != null)
+        {
+            rb.linearVelocity = Vector3.zero;
+            rb.angularVelocity = Vector3.zero;
+            rb.Sleep();
+            rb.isKinematic = true;
+
+        }
+        //if (explosionPrefab != null)
+        //{
+        //    GameObject exlposion = Instantiate(explosionPrefab, transform.position, Quaternion.identity);
+        //    Destroy(exlposion, 2f);
+        //}
+        //if (robotMesh != null)
+        //{
+        //    robotMesh.SetActive(false);
+        //}
+        //Debug.Log("Суши весла - ты приплыл");
+        //// Destroy(rb);
+        ///
+        StartCoroutine(DieCoroutine());
+
+    }
+
+    private IEnumerator DieCoroutine()
+    {
+        yield return null;
+        float animLength = animator.GetCurrentAnimatorStateInfo(0).length;
+        yield return new WaitForSeconds(animLength);
+
+        if (explosionPrefab != null)
+        {
+            GameObject explosion = Instantiate(explosionPrefab, transform.position, Quaternion.identity);
+            Destroy(explosion, 2f);
+        }
+
+        if (robotMesh != null)
+        {
+            robotMesh.SetActive(false);
+        }
+    }
+    public void Revive()
+    {
+        if (animator != null)
+        {
+            animator.SetBool("isDie", false);
+        }
+
+        if (robotMesh != null)
+        {
+            robotMesh.SetActive(true);
+        }
+        if (rb != null)
+        {
+            rb.isKinematic = false;
+        }
+        if (movementScript != null)
+        {
+            movementScript.enabled = true;
+        }
+        
+
     }
 }
