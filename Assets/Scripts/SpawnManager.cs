@@ -21,9 +21,9 @@ public class SpawnManager : MonoBehaviour
     }
     void Start()
     {
-        SpawnCube();
+        SpawnPlayer();
     }
-    public void SpawnCube()
+    public void SpawnPlayer()
     {
         if (player != null && spawnPoint != null)
         {
@@ -31,7 +31,7 @@ public class SpawnManager : MonoBehaviour
             CameraStateController camController = FindAnyObjectByType<CameraStateController>();
             if (camController != null)
             {
-                camController.SetCameraTarget(newPlayer);
+                camController.InitCamera(newPlayer);
             }
         }
     }

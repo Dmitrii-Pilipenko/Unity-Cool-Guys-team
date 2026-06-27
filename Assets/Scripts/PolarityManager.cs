@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PolarityManager : MonoBehaviour
+public class PolarityManager : MonoBehaviour //мб можно и удалить нафиг этот скрипт
 {
     public bool isRed = true;
     [SerializeField] private Renderer rend;

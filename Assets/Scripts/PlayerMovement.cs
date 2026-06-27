@@ -1,98 +1,99 @@
-using Unity.VisualScripting;
 using UnityEngine;
 
-[RequireComponent(typeof(Rigidbody))]
-public class PlayerMovement : MonoBehaviour, IControllable 
+[RequireComponent(typeof(CharacterController))]
+public class PlayerMovement : MonoBehaviour, IControllable
 {
-    [SerializeField] public float speed = 7f;
-    [SerializeField] public float turnSpeed = 10f;
-    [SerializeField] public float jumpForce = 6f;
-    [SerializeField] Animator animator;
-    private Rigidbody rb;
-    private Camera mainCam;
-    private bool isGrounded;
-    private bool isOnFloor;
-    private float inputH;
-    private float inputV;
+    [Header("Настройки")]
+    public float speed = 7f;
+    public float jumpForce = 8f;
+    public float gravity = 15f; 
+    private CharacterController controller;
+    private Transform cameraTransform;
+    private Vector3 velocity;
+    private InputManager inputManager;
+    private Animator animator;
     private bool isNormalGravityPlayer = true;
-    private Vector3 personalGravity = new Vector3(0, -9.81f, 0);
+    private float currentTiltZ = 0f; 
 
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
-        mainCam = Camera.main;
-        rb.useGravity = false;
-        InputManager manager = FindFirstObjectByType<InputManager>();
-        if (manager != null)
-        {
-            manager.RegisterObject(this);
-        }
+        controller = GetComponent<CharacterController>();
+        animator = GetComponentInChildren<Animator>();
+        if (Camera.main != null) cameraTransform = Camera.main.transform;
+
+        inputManager = FindObjectOfType<InputManager>();
+        if (inputManager != null) inputManager.RegisterObject(this);
+
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
+
     public void Move(float horizontal, float vertical)
     {
-        inputH = horizontal;
-        inputV = vertical;
+        bool hitCeiling = (controller.collisionFlags & CollisionFlags.Above) != 0;
+        bool isGroundedNow = isNormalGravityPlayer ? controller.isGrounded : hitCeiling;
+
+        if (isGroundedNow)
+        {
+            if (isNormalGravityPlayer && velocity.y < 0) velocity.y = -2f;
+            if (!isNormalGravityPlayer && velocity.y > 0) velocity.y = 2f;
+        }
+
+        Vector3 inputDir = new Vector3(horizontal, 0f, vertical).normalized;
+
+        // ПЛАВНЫЙ ПЕРЕВОРОТ (без дерганий)
+        float targetTiltZ = isNormalGravityPlayer ? 0f : 180f;
+        currentTiltZ = Mathf.MoveTowardsAngle(currentTiltZ, targetTiltZ, 600f * Time.deltaTime);
+
+        if (inputDir.magnitude >= 0.1f && cameraTransform != null)
+        {
+            float targetAngle = Mathf.Atan2(inputDir.x, inputDir.z) * Mathf.Rad2Deg + cameraTransform.eulerAngles.y;
+            transform.rotation = Quaternion.Euler(0f, targetAngle, currentTiltZ);
+
+            Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
+            controller.Move(moveDir * speed * Time.deltaTime);
+        }
+        else
+        {
+            transform.rotation = Quaternion.Euler(0f, transform.eulerAngles.y, currentTiltZ);
+        }
+
+        float absG = Mathf.Abs(gravity);
+        float currentGravity = isNormalGravityPlayer ? -absG : absG;
+        velocity.y += currentGravity * Time.deltaTime;
+
+        controller.Move(velocity * Time.deltaTime);
+
+        if (animator != null)
+        {
+            animator.SetFloat("Blend", inputDir.magnitude);
+            bool isFlipping = Mathf.Abs(Mathf.DeltaAngle(currentTiltZ, targetTiltZ)) > 1f;
+            animator.SetBool("isGround", isGroundedNow || isFlipping);
+        }
     }
 
     public void Jump()
     {
-        isGrounded = Physics.Raycast(transform.position, Vector3.down, 1.1f);
-        isOnFloor = Physics.Raycast(transform.position, Vector3.up, 1.1f);
-        if (isGrounded)
+        bool hitCeiling = (controller.collisionFlags & CollisionFlags.Above) != 0;
+        bool isGroundedNow = isNormalGravityPlayer ? controller.isGrounded : hitCeiling;
+
+        if (isGroundedNow)
         {
-            rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-        }
-        else if (isOnFloor)
-        {
-            rb.AddForce(Vector3.down * jumpForce, ForceMode.Impulse);
+            velocity.y = isNormalGravityPlayer ? jumpForce : -jumpForce;
         }
     }
+
     public void ToggleGravity()
     {
-        isNormalGravityPlayer = !isNormalGravityPlayer;       
-        if (isNormalGravityPlayer)
-        {
-            personalGravity = new Vector3(0, -9.81f, 0);
-            transform.localScale = new Vector3(1, 1, 1); 
-        }
-        else
-        {
-            personalGravity = new Vector3(0, 9.81f, 0);  
-            transform.localScale = new Vector3(1, -1, 1);
-        }
-    }
-    public void Update()
-    {
-        float moveAmount = new Vector2(inputH, inputV).magnitude;
-
-
-        animator.SetFloat("Blend", moveAmount);
-
-        //if (Input.GetMouseButtonDown(0))
-        //{
-        //    animator.SetTrigger("attack");
-        //}
+        isNormalGravityPlayer = !isNormalGravityPlayer;
+        velocity.y = 0f; 
+        
+        Vector3 detachForce = isNormalGravityPlayer ? Vector3.down : Vector3.up;
+        controller.Move(detachForce * 0.15f);
     }
 
-
-    private void FixedUpdate()
+    private void OnDestroy()
     {
-        rb.AddForce(personalGravity, ForceMode.Acceleration);
-        Vector3 camForward = mainCam.transform.forward;
-        Vector3 camRight = mainCam.transform.right; 
-        camForward.y = 0;
-        camRight.y = 0;
-        camForward.Normalize();
-        camRight.Normalize();        
-        Vector3 moveDirection = (camForward * inputV + camRight * inputH).normalized;
-        Vector3 newVelocity = moveDirection * speed;       
-        newVelocity.y = rb.linearVelocity.y;
-        rb.linearVelocity = newVelocity;
-        if (moveDirection != Vector3.zero)
-        {
-            Quaternion targetRotation = Quaternion.LookRotation(moveDirection);
-            rb.rotation = Quaternion.Slerp(rb.rotation, targetRotation, turnSpeed * Time.fixedDeltaTime);
-        }
-
+        if (inputManager != null) inputManager.UnregisterObject(this);
     }
 }
