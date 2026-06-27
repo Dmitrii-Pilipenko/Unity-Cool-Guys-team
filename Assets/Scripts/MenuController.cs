@@ -5,38 +5,40 @@ public class MenuController : MonoBehaviour
 {
     [SerializeField] private GameObject mainMenuPanel;
     [SerializeField] private GameObject settingsPanel;
+    [SerializeField] private GameObject levelsPanel;
 
-    private void Awake()
+    public void OpenLevels()
     {
-        if (mainMenuPanel == null || settingsPanel == null)
-        {
-            Debug.LogError("Menu panels not assigned!");
-        }
-    }
-
-    public void Play()
-    {
-        SceneManager.LoadScene("IvanSpace");
+        mainMenuPanel.SetActive(false);
+        settingsPanel.SetActive(false);
+        levelsPanel.SetActive(true);
     }
 
     public void OpenSettings()
     {
-        SetPanels(false, true);
+        mainMenuPanel.SetActive(false);
+        levelsPanel.SetActive(false);
+        settingsPanel.SetActive(true);
     }
 
-    public void CloseSettings()
+    public void BackToMainMenu()
     {
-        SetPanels(true, false);
+        settingsPanel.SetActive(false);
+        levelsPanel.SetActive(false);
+        mainMenuPanel.SetActive(true);
     }
 
-    private void SetPanels(bool main, bool settings)
+    public void LoadLevel(string sceneName)
     {
-        mainMenuPanel.SetActive(main);
-        settingsPanel.SetActive(settings);
+        SceneManager.LoadScene(sceneName);
     }
 
     public void ExitGame()
     {
-        Application.Quit();
+    #if UNITY_EDITOR
+            UnityEditor.EditorApplication.isPlaying = false;
+    #else
+            Application.Quit();
+    #endif
     }
 }
