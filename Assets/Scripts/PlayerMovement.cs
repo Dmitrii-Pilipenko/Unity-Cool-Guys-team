@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.AI;
 
 [RequireComponent(typeof(CharacterController))]
 public class PlayerMovement : MonoBehaviour, IControllable
@@ -41,7 +42,6 @@ public class PlayerMovement : MonoBehaviour, IControllable
 
         Vector3 inputDir = new Vector3(horizontal, 0f, vertical).normalized;
 
-        // ПЛАВНЫЙ ПЕРЕВОРОТ (без дерганий)
         float targetTiltZ = isNormalGravityPlayer ? 0f : 180f;
         currentTiltZ = Mathf.MoveTowardsAngle(currentTiltZ, targetTiltZ, 600f * Time.deltaTime);
 
@@ -81,13 +81,21 @@ public class PlayerMovement : MonoBehaviour, IControllable
         {
             velocity.y = isNormalGravityPlayer ? jumpForce : -jumpForce;
         }
+        AchievementManager.Instance.ReportAction("jump"); 
     }
 
     public void ToggleGravity()
     {
         isNormalGravityPlayer = !isNormalGravityPlayer;
-        velocity.y = 0f; 
-        
+        velocity.y = 0f;
+
+        Vector3 detachForce = isNormalGravityPlayer ? Vector3.down : Vector3.up;
+        controller.Move(detachForce * 0.15f);
+    }
+    public void ResetPolarity() //обнуляем после смерти хотфикс
+    {
+        isNormalGravityPlayer = true;
+        velocity.y = 0f;
         Vector3 detachForce = isNormalGravityPlayer ? Vector3.down : Vector3.up;
         controller.Move(detachForce * 0.15f);
     }

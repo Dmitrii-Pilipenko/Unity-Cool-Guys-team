@@ -33,6 +33,7 @@ public class SpawnManager : MonoBehaviour
             {
                 camController.InitCamera(newPlayer);
             }
+
         }
     }
     public void Relocate(GameObject playerObj)
@@ -42,11 +43,12 @@ public class SpawnManager : MonoBehaviour
     }
     private IEnumerator Respawn(GameObject playerObj)
     {
-        yield return new WaitForSeconds(1.0f);
+        yield return new WaitForSeconds(2.0f);
         if (spawnPoint == null) yield break;
         playerObj.transform.position = spawnPoint.position;
         if (playerObj.TryGetComponent(out Rigidbody rb))
         {
+
             rb.linearVelocity = Vector3.zero;
             rb.angularVelocity = Vector3.zero;
         }
