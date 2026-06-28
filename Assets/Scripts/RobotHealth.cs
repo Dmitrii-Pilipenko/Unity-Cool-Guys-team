@@ -21,6 +21,8 @@ public class RobotHealth : MonoBehaviour
     public void TakeDamage(ElementType type)
     {
         Die();
+        AchievementManager.Instance.ReportAction("die"); 
+        // AchievementManager.Instance.UnlockAchievement("First damage"); 
     }
     private void Die()
     {
@@ -91,8 +93,11 @@ public class RobotHealth : MonoBehaviour
         if (movementScript != null)
         {
             movementScript.enabled = true;
+            movementScript.ResetPolarity(); 
+            Debug.Log("сработал скрипт ресета");
         }
-        
+
 
     }
+    
 }
