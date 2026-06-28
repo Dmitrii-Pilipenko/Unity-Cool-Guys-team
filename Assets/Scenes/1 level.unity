@@ -4409,7 +4409,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HazardArea
   zap: {fileID: 0}
-  hazardType: {fileID: 11400000, guid: 908a7fb9ec6dd462490b8d8bf93fb87a, type: 2}
+  hazardType: {fileID: 11400000, guid: e5611a5138ec5e44abd37444f38c188d, type: 2}
 --- !u!64 &355479401
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -7183,7 +7183,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HazardArea
   zap: {fileID: 0}
-  hazardType: {fileID: 11400000, guid: 908a7fb9ec6dd462490b8d8bf93fb87a, type: 2}
+  hazardType: {fileID: 11400000, guid: e5611a5138ec5e44abd37444f38c188d, type: 2}
 --- !u!64 &535983790
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -10821,7 +10821,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HazardArea
   zap: {fileID: 0}
-  hazardType: {fileID: 11400000, guid: 908a7fb9ec6dd462490b8d8bf93fb87a, type: 2}
+  hazardType: {fileID: 11400000, guid: e5611a5138ec5e44abd37444f38c188d, type: 2}
 --- !u!1 &905223954
 GameObject:
   m_ObjectHideFlags: 0
@@ -10949,7 +10949,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HazardArea
   zap: {fileID: 0}
-  hazardType: {fileID: 11400000, guid: 908a7fb9ec6dd462490b8d8bf93fb87a, type: 2}
+  hazardType: {fileID: 11400000, guid: e5611a5138ec5e44abd37444f38c188d, type: 2}
 --- !u!1001 &909960460
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15262,7 +15262,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HazardArea
   zap: {fileID: 0}
-  hazardType: {fileID: 11400000, guid: 908a7fb9ec6dd462490b8d8bf93fb87a, type: 2}
+  hazardType: {fileID: 11400000, guid: e5611a5138ec5e44abd37444f38c188d, type: 2}
 --- !u!64 &1400440535
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -15390,7 +15390,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HazardArea
   zap: {fileID: 0}
-  hazardType: {fileID: 11400000, guid: 908a7fb9ec6dd462490b8d8bf93fb87a, type: 2}
+  hazardType: {fileID: 11400000, guid: e5611a5138ec5e44abd37444f38c188d, type: 2}
 --- !u!64 &1406578457
 MeshCollider:
   m_ObjectHideFlags: 0
