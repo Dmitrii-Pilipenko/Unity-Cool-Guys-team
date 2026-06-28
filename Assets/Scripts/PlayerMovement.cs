@@ -40,6 +40,8 @@ public class PlayerMovement : MonoBehaviour, IControllable
             if (!isNormalGravityPlayer && velocity.y > 0) velocity.y = 2f;
         }
 
+        if (!isNormalGravityPlayer) horizontal = -horizontal;
+
         Vector3 inputDir = new Vector3(horizontal, 0f, vertical).normalized;
         float targetTiltZ = isNormalGravityPlayer ? 0f : 180f;
         currentTiltZ = Mathf.MoveTowardsAngle(currentTiltZ, targetTiltZ, 600f * Time.deltaTime);

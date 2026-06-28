@@ -2208,7 +2208,7 @@ MonoBehaviour:
     m_DecelTime: 0.1
     m_InputAxisName: Mouse Y
     m_InputAxisValue: 0
-    m_InvertInput: 0
+    m_InvertInput: 1
     m_MinValue: 0
     m_MaxValue: 1
     m_Wrap: 0
@@ -7790,7 +7790,7 @@ MonoBehaviour:
     m_DecelTime: 0.1
     m_InputAxisName: Mouse X
     m_InputAxisValue: 0
-    m_InvertInput: 0
+    m_InvertInput: 1
     m_MinValue: -180
     m_MaxValue: 180
     m_Wrap: 1
@@ -8078,14 +8078,14 @@ SceneRoots:
   m_Roots:
   - {fileID: 1356264576}
   - {fileID: 98651729}
-  - {fileID: 9098423158928271599}
   - {fileID: 1832678954}
-  - {fileID: 1399772310}
-  - {fileID: 918352945}
   - {fileID: 1739152292}
   - {fileID: 811131861}
-  - {fileID: 179378322}
+  - {fileID: 9098423158928271599}
+  - {fileID: 1399772310}
+  - {fileID: 918352945}
   - {fileID: 1162875168}
+  - {fileID: 179378322}
   - {fileID: 2054734476}
   - {fileID: 480032024}
   - {fileID: 178894291}
