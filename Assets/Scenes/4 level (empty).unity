@@ -5791,6 +5791,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 42d30619521814f4e949a67775a5576a, type: 3}
+--- !u!4 &1503396462 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 551200602385064141, guid: 3930b96b730077a41ba2f349f31623eb, type: 3}
+  m_PrefabInstance: {fileID: 1040625591}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1509669939
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6560,6 +6565,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &1721521840 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 551200602385064141, guid: 3930b96b730077a41ba2f349f31623eb, type: 3}
+  m_PrefabInstance: {fileID: 984929835}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1739540500
 GameObject:
   m_ObjectHideFlags: 0
@@ -7233,11 +7243,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f16e93194a274390a406b31b082358c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CameraStateController
-  roomFloor: {fileID: 0}
-  roomCeiling: {fileID: 0}
-  animator: {fileID: 1976838998}
-  vcamNormal: {fileID: 749987524}
-  vcamInverted: {fileID: 755460820}
+  roomFloor: {fileID: 1721521840}
+  roomCeiling: {fileID: 1503396462}
+  vcamNormal: {fileID: 0}
+  vcamInverted: {fileID: 0}
 --- !u!95 &1976838998
 Animator:
   serializedVersion: 7
