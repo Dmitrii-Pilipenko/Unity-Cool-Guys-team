@@ -6,14 +6,15 @@ public class PlayerMovement : MonoBehaviour, IControllable
     [Header("Настройки")]
     public float speed = 7f;
     public float jumpForce = 8f;
-    public float gravity = 15f; 
+    public float gravity = 15f;
     private CharacterController controller;
     private Transform cameraTransform;
     private Vector3 velocity;
     private InputManager inputManager;
     private Animator animator;
     private bool isNormalGravityPlayer = true;
-    private float currentTiltZ = 0f; 
+    private float currentTiltZ = 0f;
+
 
     void Start()
     {
@@ -86,8 +87,8 @@ public class PlayerMovement : MonoBehaviour, IControllable
     public void ToggleGravity()
     {
         isNormalGravityPlayer = !isNormalGravityPlayer;
-        velocity.y = 0f; 
-        
+        velocity.y = 0f;
+
         Vector3 detachForce = isNormalGravityPlayer ? Vector3.down : Vector3.up;
         controller.Move(detachForce * 0.15f);
     }
