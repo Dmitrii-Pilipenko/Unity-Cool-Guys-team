@@ -19,6 +19,7 @@ public class PolarityManager : MonoBehaviour //мб можно и удалить
         {
             isRed = !isRed;
             UpdateColor();
+            AchievementManager.Instance.ReportAction("shift"); 
         }
     }
     private void UpdateColor()
