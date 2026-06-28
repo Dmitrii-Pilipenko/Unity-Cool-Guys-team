@@ -13378,8 +13378,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f16e93194a274390a406b31b082358c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CameraStateController
-  roomFloor: {fileID: 0}
-  roomCeiling: {fileID: 0}
+  roomFloor: {fileID: 14910762}
+  roomCeiling: {fileID: 80336550}
   vcamNormal: {fileID: 0}
   vcamInverted: {fileID: 0}
 --- !u!95 &1976838998

@@ -32232,8 +32232,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f16e93194a274390a406b31b082358c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CameraStateController
-  roomFloor: {fileID: 0}
-  roomCeiling: {fileID: 0}
+  roomFloor: {fileID: 1183406665}
+  roomCeiling: {fileID: 384299240}
   vcamNormal: {fileID: 0}
   vcamInverted: {fileID: 0}
 --- !u!95 &1294716069
@@ -43493,7 +43493,7 @@ Transform:
   m_GameObject: {fileID: 1796906965}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -15.7, y: 32.38, z: 228.1}
+  m_LocalPosition: {x: -15.7, y: 34.38, z: 228.1}
   m_LocalScale: {x: 2.2, y: 0.01, z: 2.74}
   m_ConstrainProportionsScale: 0
   m_Children: []
