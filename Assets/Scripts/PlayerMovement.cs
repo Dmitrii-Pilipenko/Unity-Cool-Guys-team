@@ -42,10 +42,6 @@ public class PlayerMovement : MonoBehaviour, IControllable
 
         Vector3 inputDir = new Vector3(horizontal, 0f, vertical).normalized;
 
-<<<<<<< HEAD
-=======
-        // ПЛАВНЫЙ ПЕРЕВОРОТ (без дерганий)
->>>>>>> 499c324e0609feb6578f226ebee0be8f8aeade2b
         float targetTiltZ = isNormalGravityPlayer ? 0f : 180f;
         currentTiltZ = Mathf.MoveTowardsAngle(currentTiltZ, targetTiltZ, 600f * Time.deltaTime);
 
