@@ -90,6 +90,7 @@ public class PlayerMovement : MonoBehaviour, IControllable
 
         Vector3 detachForce = isNormalGravityPlayer ? Vector3.down : Vector3.up;
         controller.Move(detachForce * 0.15f);
+        AchievementManager.Instance.ReportAction("shift");
     }
     public void ResetPolarity() //обнуляем после смерти хотфикс
     {
