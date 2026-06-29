@@ -653,7 +653,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HazardArea
   zap: {fileID: 0}
-  hazardType: {fileID: 11400000, guid: 908a7fb9ec6dd462490b8d8bf93fb87a, type: 2}
+  hazardType: {fileID: 11400000, guid: e5611a5138ec5e44abd37444f38c188d, type: 2}
 --- !u!64 &480032021
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -793,6 +793,27 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 7b367282864a4de4e888e03acfe52f9a, type: 3}
   m_PrefabInstance: {fileID: 1819229170}
   m_PrefabAsset: {fileID: 0}
+--- !u!65 &584551245
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 584551239}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.39999998, y: 0.66087294, z: 0.4381411}
+  m_Center: {x: 0, y: 0.33043647, z: 0.044070564}
 --- !u!1 &675800070
 GameObject:
   m_ObjectHideFlags: 3
@@ -2254,6 +2275,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 69f58f5d9227944ada254d21c8f5d3e8, type: 2}
   - {fileID: 11400000, guid: 2bb27193e89ec4a08901c3120bb6413e, type: 2}
   - {fileID: 11400000, guid: 68c2055751eca4183a8244d1e0423492, type: 2}
+  - {fileID: 11400000, guid: 14e5500400a9d47d9ba438db45016699, type: 2}
 --- !u!4 &1356264576
 Transform:
   m_ObjectHideFlags: 0
@@ -2831,6 +2853,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 7b367282864a4de4e888e03acfe52f9a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 584551240}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 7b367282864a4de4e888e03acfe52f9a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 584551245}
   m_SourcePrefab: {fileID: 100100000, guid: 7b367282864a4de4e888e03acfe52f9a, type: 3}
 --- !u!1 &1832678950
 GameObject:
@@ -3344,6 +3369,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Electric sparkles
       objectReference: {fileID: 0}
+    - target: {fileID: 7511710519528668039, guid: 65cb2fae99f7e1742bab09b7828971f6, type: 3}
+      propertyPath: hazardType
+      value: 
+      objectReference: {fileID: 11400000, guid: c7004b049202e134082076a7b401fe41, type: 2}
     - target: {fileID: 7832859118351769270, guid: 65cb2fae99f7e1742bab09b7828971f6, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
