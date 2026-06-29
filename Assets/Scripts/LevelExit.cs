@@ -35,6 +35,7 @@ public class LevelExit : MonoBehaviour
     }
     private void LoadNextLevel()
     {
+        AchievementManager.Instance.ReportAction("game");
         Debug.Log("Загрузка уровня"); //желательно скрыть ее добавить лоадскрин
         SceneManager.LoadScene(nextLevelName);
 
