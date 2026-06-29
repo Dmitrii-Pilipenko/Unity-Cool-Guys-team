@@ -14,12 +14,42 @@ public class CameraStateController : MonoBehaviour
     public CinemachineFreeLook vcamInverted;
     //private bool playerFound = false;
     private Transform player;
-  //  private float currentWorldZ = 0f;
+    //  private float currentWorldZ = 0f;
+
+    private float baseNormalX, baseNormalY;
+    private float baseInvertedX, baseInvertedY;
 
 
     void Awake()
     {
         animator = GetComponent<Animator>();
+
+        if (vcamNormal != null)
+        {
+            baseNormalX = vcamNormal.m_XAxis.m_MaxSpeed;
+            baseNormalY = vcamNormal.m_YAxis.m_MaxSpeed;
+        }
+        if (vcamInverted != null)
+        {
+            baseInvertedX = vcamInverted.m_XAxis.m_MaxSpeed;
+            baseInvertedY = vcamInverted.m_YAxis.m_MaxSpeed;
+        }
+    }
+
+    private void ApplyMouseSensitivity()
+    {
+        float s = GameSettings.MouseSensitivity;
+
+        if (vcamNormal != null)
+        {
+            vcamNormal.m_XAxis.m_MaxSpeed = baseNormalX * s;
+            vcamNormal.m_YAxis.m_MaxSpeed = baseNormalY * s;
+        }
+        if (vcamInverted != null)
+        {
+            vcamInverted.m_XAxis.m_MaxSpeed = baseInvertedX * s;
+            vcamInverted.m_YAxis.m_MaxSpeed = baseInvertedY * s;
+        }
     }
     public void InitCamera(GameObject spawnedPlayer)
     {
@@ -45,6 +75,8 @@ public class CameraStateController : MonoBehaviour
 
     void Update()
     {
+        ApplyMouseSensitivity();
+
         if (player == null) return;
         
 
