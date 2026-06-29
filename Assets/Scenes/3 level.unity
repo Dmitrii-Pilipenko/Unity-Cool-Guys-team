@@ -993,7 +993,9 @@ GameObject:
   - component: {fileID: 91057954}
   - component: {fileID: 91057953}
   - component: {fileID: 91057952}
+  - component: {fileID: 91057956}
   - component: {fileID: 91057951}
+  - component: {fileID: 91057955}
   m_Layer: 0
   m_Name: floor-green-panel
   m_TagString: Untagged
@@ -1094,6 +1096,44 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &91057955
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 91057950}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c519a66a34f5934395bb8c3e80f0598, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MovingPlatform
+  wallA: {fileID: 0}
+  wallB: {fileID: 0}
+  speed: 2
+  waitTime: 1
+  passengerTag: Player
+  detectHeight: 0.6
+  debugLog: 1
+--- !u!114 &91057956
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 91057950}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c519a66a34f5934395bb8c3e80f0598, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MovingPlatform
+  wallA: {fileID: 1247047504}
+  wallB: {fileID: 110864141}
+  speed: 13
+  waitTime: 2
+  passengerTag: Player
+  detectHeight: 0.6
+  debugLog: 1
 --- !u!1 &100231807
 GameObject:
   m_ObjectHideFlags: 0
@@ -2896,7 +2936,7 @@ Transform:
   m_GameObject: {fileID: 207946632}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -62.7, y: 31.55, z: 226.73663}
+  m_LocalPosition: {x: -62.7, y: 30.6, z: 226.73663}
   m_LocalScale: {x: 11.97, y: 1.49625, z: 11.97}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -3585,7 +3625,9 @@ GameObject:
   - component: {fileID: 306059114}
   - component: {fileID: 306059113}
   - component: {fileID: 306059112}
+  - component: {fileID: 306059116}
   - component: {fileID: 306059111}
+  - component: {fileID: 306059115}
   m_Layer: 0
   m_Name: floor-green-panel (3)
   m_TagString: Untagged
@@ -3680,12 +3722,50 @@ Transform:
   m_GameObject: {fileID: 306059110}
   serializedVersion: 2
   m_LocalRotation: {x: 1, y: 0, z: 0, w: 0}
-  m_LocalPosition: {x: -212.93, y: 99.97, z: 240.3802}
+  m_LocalPosition: {x: -224.19, y: 99.97, z: 240.3802}
   m_LocalScale: {x: 7.89, y: 7.89, z: 7.89}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 180, y: 0, z: 0}
+--- !u!114 &306059115
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 306059110}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c519a66a34f5934395bb8c3e80f0598, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MovingPlatform
+  wallA: {fileID: 0}
+  wallB: {fileID: 0}
+  speed: 2
+  waitTime: 1
+  passengerTag: Player
+  detectHeight: 0.6
+  debugLog: 1
+--- !u!114 &306059116
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 306059110}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c519a66a34f5934395bb8c3e80f0598, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MovingPlatform
+  wallA: {fileID: 1007584767}
+  wallB: {fileID: 996158202}
+  speed: 13
+  waitTime: 2
+  passengerTag: Player
+  detectHeight: 0.6
+  debugLog: 1
 --- !u!1 &306322091
 GameObject:
   m_ObjectHideFlags: 3
@@ -3989,6 +4069,118 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 180, y: 0, z: 0}
+--- !u!1 &315720518
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 315720522}
+  - component: {fileID: 315720521}
+  - component: {fileID: 315720520}
+  - component: {fileID: 315720519}
+  m_Layer: 0
+  m_Name: floor-panel-straight (73)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!65 &315720519
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 315720518}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 0.3, z: 1}
+  m_Center: {x: 0, y: 0.15, z: 0}
+--- !u!23 &315720520
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 315720518}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: -6538903991835684241, guid: 71a9a59783c4e7b44af2b58cd42a27be, type: 3}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_MaskInteraction: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &315720521
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 315720518}
+  m_Mesh: {fileID: -948340369460721151, guid: 71a9a59783c4e7b44af2b58cd42a27be, type: 3}
+--- !u!4 &315720522
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 315720518}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -189.26, y: 31.11, z: 256.1602}
+  m_LocalScale: {x: 7.89, y: 7.89, z: 7.89}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &320242941
 GameObject:
   m_ObjectHideFlags: 0
@@ -4448,7 +4640,9 @@ GameObject:
   - component: {fileID: 345373264}
   - component: {fileID: 345373263}
   - component: {fileID: 345373262}
+  - component: {fileID: 345373266}
   - component: {fileID: 345373261}
+  - component: {fileID: 345373265}
   m_Layer: 0
   m_Name: floor-green-panel (8)
   m_TagString: Untagged
@@ -4549,6 +4743,44 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &345373265
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 345373260}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c519a66a34f5934395bb8c3e80f0598, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MovingPlatform
+  wallA: {fileID: 0}
+  wallB: {fileID: 0}
+  speed: 2
+  waitTime: 1
+  passengerTag: Player
+  detectHeight: 0.6
+  debugLog: 1
+--- !u!114 &345373266
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 345373260}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c519a66a34f5934395bb8c3e80f0598, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MovingPlatform
+  wallA: {fileID: 1628989013}
+  wallB: {fileID: 156515518}
+  speed: 13
+  waitTime: 2
+  passengerTag: Player
+  detectHeight: 0.6
+  debugLog: 1
 --- !u!1 &353399600
 GameObject:
   m_ObjectHideFlags: 0
@@ -5008,7 +5240,9 @@ GameObject:
   - component: {fileID: 388459551}
   - component: {fileID: 388459550}
   - component: {fileID: 388459549}
+  - component: {fileID: 388459553}
   - component: {fileID: 388459548}
+  - component: {fileID: 388459552}
   m_Layer: 0
   m_Name: floor-green-panel (2)
   m_TagString: Untagged
@@ -5109,6 +5343,44 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 180, y: 0, z: 0}
+--- !u!114 &388459552
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 388459547}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c519a66a34f5934395bb8c3e80f0598, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MovingPlatform
+  wallA: {fileID: 0}
+  wallB: {fileID: 0}
+  speed: 2
+  waitTime: 1
+  passengerTag: Player
+  detectHeight: 0.6
+  debugLog: 1
+--- !u!114 &388459553
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 388459547}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c519a66a34f5934395bb8c3e80f0598, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MovingPlatform
+  wallA: {fileID: 312965447}
+  wallB: {fileID: 2147340950}
+  speed: 13
+  waitTime: 2
+  passengerTag: Player
+  detectHeight: 0.6
+  debugLog: 1
 --- !u!1 &412579853
 GameObject:
   m_ObjectHideFlags: 0
@@ -7150,7 +7422,7 @@ Transform:
   m_GameObject: {fileID: 585680649}
   serializedVersion: 2
   m_LocalRotation: {x: 1, y: 0, z: 0, w: 0}
-  m_LocalPosition: {x: -420.4, y: 100, z: 226.73663}
+  m_LocalPosition: {x: -420.4, y: 105, z: 226.73663}
   m_LocalScale: {x: 11.97, y: 1.49625, z: 11.97}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -8941,7 +9213,7 @@ Transform:
   m_GameObject: {fileID: 735186978}
   serializedVersion: 2
   m_LocalRotation: {x: 1, y: 0, z: 0, w: 0}
-  m_LocalPosition: {x: -300.9, y: 100, z: 226.73663}
+  m_LocalPosition: {x: -300.9, y: 105, z: 226.4}
   m_LocalScale: {x: 11.97, y: 1.49625, z: 11.97}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -9283,6 +9555,118 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 270, z: 0}
+--- !u!1 &748046987
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 748046991}
+  - component: {fileID: 748046990}
+  - component: {fileID: 748046989}
+  - component: {fileID: 748046988}
+  m_Layer: 0
+  m_Name: floor-panel-straight (72)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!65 &748046988
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 748046987}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 0.3, z: 1}
+  m_Center: {x: 0, y: 0.15, z: 0}
+--- !u!23 &748046989
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 748046987}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: -6538903991835684241, guid: 71a9a59783c4e7b44af2b58cd42a27be, type: 3}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_MaskInteraction: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &748046990
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 748046987}
+  m_Mesh: {fileID: -948340369460721151, guid: 71a9a59783c4e7b44af2b58cd42a27be, type: 3}
+--- !u!4 &748046991
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 748046987}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -173.48, y: 31.11, z: 200.9302}
+  m_LocalScale: {x: 7.89, y: 7.89, z: 7.89}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &753280238
 GameObject:
   m_ObjectHideFlags: 0
@@ -12249,7 +12633,7 @@ Transform:
   m_GameObject: {fileID: 916495559}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -420.4, y: 31.55, z: 226.73663}
+  m_LocalPosition: {x: -420.4, y: 30.6, z: 226.73663}
   m_LocalScale: {x: 11.97, y: 1.49625, z: 11.97}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -12809,7 +13193,7 @@ Transform:
   m_GameObject: {fileID: 973382426}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: -189.26, y: 31.11, z: 256.1602}
+  m_LocalPosition: {x: -181.37, y: 31.11, z: 256.1602}
   m_LocalScale: {x: 7.89, y: 7.89, z: 7.89}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -14134,7 +14518,9 @@ GameObject:
   - component: {fileID: 1068333876}
   - component: {fileID: 1068333875}
   - component: {fileID: 1068333874}
+  - component: {fileID: 1068333878}
   - component: {fileID: 1068333873}
+  - component: {fileID: 1068333877}
   m_Layer: 0
   m_Name: floor-green-panel (5)
   m_TagString: Untagged
@@ -14229,12 +14615,50 @@ Transform:
   m_GameObject: {fileID: 1068333872}
   serializedVersion: 2
   m_LocalRotation: {x: 1, y: 0, z: 0, w: 0}
-  m_LocalPosition: {x: -402.29, y: 99.97, z: 232.4903}
+  m_LocalPosition: {x: -400.29, y: 99.97, z: 232.4903}
   m_LocalScale: {x: 7.89, y: 7.89, z: 7.89}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 180, y: 0, z: 0}
+--- !u!114 &1068333877
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1068333872}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c519a66a34f5934395bb8c3e80f0598, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MovingPlatform
+  wallA: {fileID: 0}
+  wallB: {fileID: 0}
+  speed: 2
+  waitTime: 1
+  passengerTag: Player
+  detectHeight: 0.6
+  debugLog: 1
+--- !u!114 &1068333878
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1068333872}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c519a66a34f5934395bb8c3e80f0598, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MovingPlatform
+  wallA: {fileID: 484374631}
+  wallB: {fileID: 2014222191}
+  speed: 13
+  waitTime: 2
+  passengerTag: Player
+  detectHeight: 0.6
+  debugLog: 1
 --- !u!1 &1068429675
 GameObject:
   m_ObjectHideFlags: 0
@@ -15504,7 +15928,9 @@ GameObject:
   - component: {fileID: 1169265886}
   - component: {fileID: 1169265885}
   - component: {fileID: 1169265884}
+  - component: {fileID: 1169265888}
   - component: {fileID: 1169265883}
+  - component: {fileID: 1169265887}
   m_Layer: 0
   m_Name: floor-green-panel (1)
   m_TagString: Untagged
@@ -15605,6 +16031,44 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1169265887
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1169265882}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c519a66a34f5934395bb8c3e80f0598, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MovingPlatform
+  wallA: {fileID: 0}
+  wallB: {fileID: 0}
+  speed: 2
+  waitTime: 1
+  passengerTag: Player
+  detectHeight: 0.6
+  debugLog: 1
+--- !u!114 &1169265888
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1169265882}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c519a66a34f5934395bb8c3e80f0598, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MovingPlatform
+  wallA: {fileID: 740225299}
+  wallB: {fileID: 491339140}
+  speed: 13
+  waitTime: 2
+  passengerTag: Player
+  detectHeight: 0.6
+  debugLog: 1
 --- !u!1 &1177749193
 GameObject:
   m_ObjectHideFlags: 0
@@ -18122,7 +18586,7 @@ Transform:
   m_GameObject: {fileID: 1325427666}
   serializedVersion: 2
   m_LocalRotation: {x: 1, y: 0, z: 0, w: 0}
-  m_LocalPosition: {x: -62.7, y: 100, z: 226.73663}
+  m_LocalPosition: {x: -62.7, y: 105, z: 226.4}
   m_LocalScale: {x: 11.97, y: 1.49625, z: 11.97}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -18234,7 +18698,7 @@ Transform:
   m_GameObject: {fileID: 1332051998}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -173.48, y: 31.11, z: 200.9302}
+  m_LocalPosition: {x: -181.37, y: 31.11, z: 200.9302}
   m_LocalScale: {x: 7.89, y: 7.89, z: 7.89}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -18475,7 +18939,9 @@ GameObject:
   - component: {fileID: 1374071674}
   - component: {fileID: 1374071673}
   - component: {fileID: 1374071672}
+  - component: {fileID: 1374071676}
   - component: {fileID: 1374071671}
+  - component: {fileID: 1374071675}
   m_Layer: 0
   m_Name: floor-green-panel (4)
   m_TagString: Untagged
@@ -18576,6 +19042,44 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 180, y: 0, z: 0}
+--- !u!114 &1374071675
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1374071670}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c519a66a34f5934395bb8c3e80f0598, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MovingPlatform
+  wallA: {fileID: 0}
+  wallB: {fileID: 0}
+  speed: 2
+  waitTime: 1
+  passengerTag: Player
+  detectHeight: 0.6
+  debugLog: 1
+--- !u!114 &1374071676
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1374071670}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c519a66a34f5934395bb8c3e80f0598, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MovingPlatform
+  wallA: {fileID: 264035041}
+  wallB: {fileID: 1866799586}
+  speed: 13
+  waitTime: 2
+  passengerTag: Player
+  detectHeight: 0.6
+  debugLog: 1
 --- !u!1 &1381301064
 GameObject:
   m_ObjectHideFlags: 0
@@ -20360,7 +20864,7 @@ Transform:
   m_GameObject: {fileID: 1495902177}
   serializedVersion: 2
   m_LocalRotation: {x: 1, y: 0, z: 0, w: 0}
-  m_LocalPosition: {x: -181.4, y: 100, z: 226.73663}
+  m_LocalPosition: {x: -181.4, y: 105, z: 226.73663}
   m_LocalScale: {x: 11.97, y: 1.49625, z: 11.97}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -25939,7 +26443,7 @@ Transform:
   m_GameObject: {fileID: 1870091814}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -181.67, y: 31.55, z: 226.73663}
+  m_LocalPosition: {x: -181.67, y: 30.6, z: 226.73663}
   m_LocalScale: {x: 11.97, y: 1.49625, z: 11.97}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -26516,7 +27020,9 @@ GameObject:
   - component: {fileID: 1919874088}
   - component: {fileID: 1919874087}
   - component: {fileID: 1919874086}
+  - component: {fileID: 1919874090}
   - component: {fileID: 1919874085}
+  - component: {fileID: 1919874089}
   m_Layer: 0
   m_Name: floor-green-panel (6)
   m_TagString: Untagged
@@ -26617,6 +27123,44 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1919874089
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1919874084}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c519a66a34f5934395bb8c3e80f0598, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MovingPlatform
+  wallA: {fileID: 0}
+  wallB: {fileID: 0}
+  speed: 2
+  waitTime: 1
+  passengerTag: Player
+  detectHeight: 0.6
+  debugLog: 1
+--- !u!114 &1919874090
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1919874084}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c519a66a34f5934395bb8c3e80f0598, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MovingPlatform
+  wallA: {fileID: 1332051999}
+  wallB: {fileID: 973382427}
+  speed: 13
+  waitTime: 2
+  passengerTag: Player
+  detectHeight: 0.6
+  debugLog: 1
 --- !u!1 &1922232889
 GameObject:
   m_ObjectHideFlags: 0
@@ -28813,7 +29357,9 @@ GameObject:
   - component: {fileID: 2024265709}
   - component: {fileID: 2024265708}
   - component: {fileID: 2024265707}
+  - component: {fileID: 2024265711}
   - component: {fileID: 2024265706}
+  - component: {fileID: 2024265710}
   m_Layer: 0
   m_Name: floor-green-panel (7)
   m_TagString: Untagged
@@ -28914,6 +29460,44 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2024265710
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2024265705}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c519a66a34f5934395bb8c3e80f0598, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MovingPlatform
+  wallA: {fileID: 0}
+  wallB: {fileID: 0}
+  speed: 2
+  waitTime: 1
+  passengerTag: Player
+  detectHeight: 0.6
+  debugLog: 1
+--- !u!114 &2024265711
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2024265705}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c519a66a34f5934395bb8c3e80f0598, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MovingPlatform
+  wallA: {fileID: 1065809363}
+  wallB: {fileID: 1785059115}
+  speed: 13
+  waitTime: 2
+  passengerTag: Player
+  detectHeight: 0.6
+  debugLog: 1
 --- !u!1 &2026614747
 GameObject:
   m_ObjectHideFlags: 0
@@ -30183,7 +30767,7 @@ Transform:
   m_GameObject: {fileID: 2113177103}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -300.9, y: 31.55, z: 226.73663}
+  m_LocalPosition: {x: -300.9, y: 30.6, z: 226.73663}
   m_LocalScale: {x: 11.97, y: 1.49625, z: 11.97}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -31037,6 +31621,7 @@ SceneRoots:
   - {fileID: 1169265886}
   - {fileID: 428383921}
   - {fileID: 656984335}
+  - {fileID: 315720522}
   - {fileID: 1481256190}
   - {fileID: 1568681150}
   - {fileID: 267795730}
@@ -31055,6 +31640,7 @@ SceneRoots:
   - {fileID: 645956094}
   - {fileID: 799518491}
   - {fileID: 1721106028}
+  - {fileID: 748046991}
   - {fileID: 1090759645}
   - {fileID: 981890320}
   - {fileID: 907013791}

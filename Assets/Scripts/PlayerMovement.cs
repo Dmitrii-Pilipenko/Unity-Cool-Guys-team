@@ -1,56 +1,79 @@
 using UnityEngine;
 using UnityEngine.AI;
-
 [RequireComponent(typeof(CharacterController))]
 public class PlayerMovement : MonoBehaviour, IControllable
 {
     [Header("Настройки")]
     public float speed = 7f;
     public float jumpForce = 8f;
-    public float gravity = 15f; 
+    public float gravity = 15f;
     private CharacterController controller;
     private Transform cameraTransform;
     private Vector3 velocity;
     private InputManager inputManager;
     private Animator animator;
     private bool isNormalGravityPlayer = true;
-    private float currentTiltZ = 0f; 
+    private float currentTiltZ = 0f;
+
+    private Transform ridingPlatform;
+    private Vector3 lastPlatformPos;
 
     void Start()
     {
         controller = GetComponent<CharacterController>();
         animator = GetComponentInChildren<Animator>();
         if (Camera.main != null) cameraTransform = Camera.main.transform;
-
         inputManager = FindObjectOfType<InputManager>();
         if (inputManager != null) inputManager.RegisterObject(this);
-
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }
+
+    void LateUpdate()
+    {
+        if (controller == null) return;
+
+        Vector3 down = isNormalGravityPlayer ? Vector3.down : Vector3.up;
+        Transform plat = null;
+
+        if (Physics.Raycast(transform.position - down * 0.1f, down, out RaycastHit hit, 0.5f, ~0, QueryTriggerInteraction.Ignore))
+        {
+            MovingPlatform mp = hit.collider.GetComponentInParent<MovingPlatform>();
+            if (mp != null) plat = mp.transform;
+        }
+
+        if (plat != ridingPlatform)
+        {
+            ridingPlatform = plat;
+            if (plat != null) lastPlatformPos = plat.position;
+        }
+
+        if (ridingPlatform != null)
+        {
+            Vector3 delta = ridingPlatform.position - lastPlatformPos;
+            if (delta != Vector3.zero) controller.Move(delta);
+            lastPlatformPos = ridingPlatform.position;
+        }
+    }
+
 
     public void Move(float horizontal, float vertical)
     {
         bool hitCeiling = (controller.collisionFlags & CollisionFlags.Above) != 0;
         bool isGroundedNow = isNormalGravityPlayer ? controller.isGrounded : hitCeiling;
-
         if (isGroundedNow)
         {
             if (isNormalGravityPlayer && velocity.y < 0) velocity.y = -2f;
             if (!isNormalGravityPlayer && velocity.y > 0) velocity.y = 2f;
         }
-
         if (!isNormalGravityPlayer) horizontal = -horizontal;
-
         Vector3 inputDir = new Vector3(horizontal, 0f, vertical).normalized;
         float targetTiltZ = isNormalGravityPlayer ? 0f : 180f;
         currentTiltZ = Mathf.MoveTowardsAngle(currentTiltZ, targetTiltZ, 600f * Time.deltaTime);
-
         if (inputDir.magnitude >= 0.1f && cameraTransform != null)
         {
             float targetAngle = Mathf.Atan2(inputDir.x, inputDir.z) * Mathf.Rad2Deg + cameraTransform.eulerAngles.y;
             transform.rotation = Quaternion.Euler(0f, targetAngle, currentTiltZ);
-
             Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
             controller.Move(moveDir * speed * Time.deltaTime);
         }
@@ -58,13 +81,10 @@ public class PlayerMovement : MonoBehaviour, IControllable
         {
             transform.rotation = Quaternion.Euler(0f, transform.eulerAngles.y, currentTiltZ);
         }
-
         float absG = Mathf.Abs(gravity);
         float currentGravity = isNormalGravityPlayer ? -absG : absG;
         velocity.y += currentGravity * Time.deltaTime;
-
         controller.Move(velocity * Time.deltaTime);
-
         if (animator != null)
         {
             animator.SetFloat("Blend", inputDir.magnitude);
@@ -72,24 +92,20 @@ public class PlayerMovement : MonoBehaviour, IControllable
             animator.SetBool("isGround", isGroundedNow || isFlipping);
         }
     }
-
     public void Jump()
     {
         bool hitCeiling = (controller.collisionFlags & CollisionFlags.Above) != 0;
         bool isGroundedNow = isNormalGravityPlayer ? controller.isGrounded : hitCeiling;
-
         if (isGroundedNow)
         {
             velocity.y = isNormalGravityPlayer ? jumpForce : -jumpForce;
         }
-        AchievementManager.Instance.ReportAction("jump"); 
+        AchievementManager.Instance.ReportAction("jump");
     }
-
     public void ToggleGravity()
     {
         isNormalGravityPlayer = !isNormalGravityPlayer;
         velocity.y = 0f;
-
         Vector3 detachForce = isNormalGravityPlayer ? Vector3.down : Vector3.up;
         controller.Move(detachForce * 0.15f);
     }
@@ -100,7 +116,6 @@ public class PlayerMovement : MonoBehaviour, IControllable
         Vector3 detachForce = isNormalGravityPlayer ? Vector3.down : Vector3.up;
         controller.Move(detachForce * 0.15f);
     }
-
     private void OnDestroy()
     {
         if (inputManager != null) inputManager.UnregisterObject(this);
