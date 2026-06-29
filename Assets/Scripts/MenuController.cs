@@ -6,6 +6,7 @@ public class MenuController : MonoBehaviour
     [SerializeField] private GameObject mainMenuPanel;
     [SerializeField] private GameObject settingsPanel;
     [SerializeField] private GameObject levelsPanel;
+    [SerializeField] private string defaultLevel = "1 level";
 
     public void OpenLevels()
     {
@@ -31,6 +32,12 @@ public class MenuController : MonoBehaviour
     public void LoadLevel(string sceneName)
     {
         SceneManager.LoadScene(sceneName);
+    }
+
+    public void ContinueGame()
+    {
+        string scene = LevelProgress.HasLastLevel ? LevelProgress.LastLevel : defaultLevel;
+        SceneManager.LoadScene(scene);
     }
 
     public void ExitGame()
