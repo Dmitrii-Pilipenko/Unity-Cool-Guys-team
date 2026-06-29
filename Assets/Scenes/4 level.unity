@@ -1684,9 +1684,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AchievementManager
   database:
-  - {fileID: 11400000, guid: 56cbe2a42cf8d47458c9896915fd64e6, type: 2}
-  - {fileID: 11400000, guid: 69f58f5d9227944ada254d21c8f5d3e8, type: 2}
-  - {fileID: 11400000, guid: 2bb27193e89ec4a08901c3120bb6413e, type: 2}
+  - {fileID: 11400000, guid: cc87a0310a7899447a83d51ac4d80359, type: 2}
+  - {fileID: 11400000, guid: c29ebc4bb388d2e49816ac08351375d7, type: 2}
+  - {fileID: 11400000, guid: 27dcb73b38b5ceb479ac1f9e0567ac48, type: 2}
+  - {fileID: 11400000, guid: 14e5500400a9d47d9ba438db45016699, type: 2}
   - {fileID: 11400000, guid: 68c2055751eca4183a8244d1e0423492, type: 2}
 --- !u!4 &163934344
 Transform:
