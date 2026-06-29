@@ -633,7 +633,7 @@ GameObject:
   - component: {fileID: 344931384}
   - component: {fileID: 344931383}
   m_Layer: 0
-  m_Name: Text (TMP)
+  m_Name: ExitTxt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3030,6 +3030,7 @@ GameObject:
   - component: {fileID: 1947039291}
   - component: {fileID: 1947039290}
   - component: {fileID: 1947039289}
+  - component: {fileID: 1947039294}
   m_Layer: 0
   m_Name: LevelExit
   m_TagString: Untagged
@@ -3049,8 +3050,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18e67035698744e2b88ebbd98a116c28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LevelExit
-  nextLevelName: 
-  hintUI: {fileID: 0}
+  nextLevelName: 1 level
+  hintUI: {fileID: 344931381}
 --- !u!65 &1947039290
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3070,7 +3071,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 5, y: 5, z: 5}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &1947039291
 MeshRenderer:
@@ -3145,6 +3146,27 @@ Transform:
   - {fileID: 344931382}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1947039294
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1947039288}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2054734474
 GameObject:
   m_ObjectHideFlags: 0
